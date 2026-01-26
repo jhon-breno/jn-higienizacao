@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jn-climatizacao.com/sitemap.xml
+
+# Otimizações
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
