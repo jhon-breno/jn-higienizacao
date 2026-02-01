@@ -11,6 +11,7 @@ const navMenu = document.querySelector(".nav-menu");
 if (hamburger) {
   hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
+    hamburger.classList.toggle("active");
   });
 }
 
@@ -18,6 +19,7 @@ if (hamburger) {
 document.querySelectorAll(".nav-menu a").forEach((link) => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("active");
+    hamburger.classList.remove("active");
   });
 });
 
@@ -263,7 +265,7 @@ function enviarFormulario(event) {
       } else {
         mostrarToast(
           "Erro ao enviar. Tente novamente ou entre em contato via WhatsApp.",
-          "error"
+          "error",
         );
       }
     })
@@ -271,7 +273,7 @@ function enviarFormulario(event) {
       console.error("Erro:", error);
       mostrarToast(
         "Erro ao enviar. Tente novamente ou entre em contato via WhatsApp.",
-        "error"
+        "error",
       );
     })
     .finally(() => {
