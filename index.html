@@ -151,6 +151,7 @@
           <ul class="nav-menu">
             <li><a href="#home">Início</a></li>
             <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#calculadora-btus">Calculadora BTUs</a></li>
             <li><a href="#portfolio">Portfólio</a></li>
             <li><a href="#orcamento">Orçamento</a></li>
             <li><a href="#contato">Contato</a></li>
@@ -179,7 +180,7 @@
           <a href="#orcamento" class="btn btn-primary">Solicitar Orçamento</a>
           <a href="#portfolio" class="btn btn-secondary">Ver Trabalhos</a>
         </div>
-        <div class="hero-features" style="gap: 0.5rem;">
+        <div class="hero-features" style="gap: 0.5rem">
           <div class="feature-item">
             <i class="fas fa-check-circle"></i>
             <span>Serviço Profissional</span>
@@ -213,7 +214,7 @@
         </p>
 
         <div class="servicos-grid">
-          <div class="servico-card">
+          <a href="#orcamento" class="servico-card">
             <div class="servico-icon">
               <i class="fas fa-snowflake"></i>
             </div>
@@ -222,10 +223,10 @@
               Higienização completa da parte interna do ar condicionado,
               removendo sujeira, fungos e bactérias.
             </p>
-            <span class="preco">A partir de R$ 200,00</span>
-          </div>
+            <span class="preco">Solicitar Orçamento</span>
+          </a>
 
-          <div class="servico-card">
+          <a href="#orcamento" class="servico-card">
             <div class="servico-icon">
               <i class="fas fa-fan"></i>
             </div>
@@ -235,9 +236,22 @@
               desempenho do seu aparelho.
             </p>
             <span class="preco">Consulte valores</span>
-          </div>
+          </a>
 
-          <div class="servico-card">
+          <!-- Card Instalação - Remover classe 'hidden' quando o serviço estiver disponível -->
+          <a href="#orcamento" class="servico-card hidden">
+            <div class="servico-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Instalação de Ar Condicionado</h3>
+            <p>
+              Instalação profissional de ar condicionado residencial com
+              garantia de qualidade e segurança.
+            </p>
+            <span class="preco">Orçamento personalizado</span>
+          </a>
+
+          <a href="#orcamento" class="servico-card">
             <div class="servico-icon">
               <i class="fas fa-shield-alt"></i>
             </div>
@@ -247,7 +261,7 @@
               equipamento.
             </p>
             <span class="preco">Orçamento personalizado</span>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -279,6 +293,157 @@
             <i class="fas fa-temperature-low"></i>
             <h3>Melhor Desempenho</h3>
             <p>Ar mais gelado e ambiente mais confortável</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculadora de BTUs -->
+    <section id="calculadora-btus" class="calculadora-btus">
+      <div class="container">
+        <h2 class="section-title">Calculadora de BTUs</h2>
+        <p class="section-subtitle">
+          Descubra qual o aparelho ideal para o seu ambiente
+        </p>
+
+        <div class="calc-btus-wrapper">
+          <div class="calc-btus-info">
+            <div class="info-box">
+              <i class="fas fa-info-circle"></i>
+              <h3>O que é BTU?</h3>
+              <p>
+                BTU (British Thermal Unit) é a unidade que mede a capacidade de
+                refrigeração de um ar condicionado. Quanto maior o BTU, maior a
+                capacidade de resfriar o ambiente.
+              </p>
+            </div>
+            <div class="info-box">
+              <i class="fas fa-lightbulb"></i>
+              <h3>Por que calcular?</h3>
+              <p>
+                Um aparelho subdimensionado não resfriará adequadamente,
+                enquanto um superdimensionado consumirá energia
+                desnecessariamente.
+              </p>
+            </div>
+          </div>
+
+          <div class="calc-btus-form">
+            <form id="formCalculoBTU">
+              <div class="form-group">
+                <label for="areaAmbiente">
+                  <i class="fas fa-ruler-combined"></i>
+                  Área do Ambiente (m²) *
+                </label>
+                <input
+                  type="number"
+                  id="areaAmbiente"
+                  min="1"
+                  step="0.1"
+                  placeholder="Ex: 15"
+                  required
+                />
+                <small>Comprimento x Largura do ambiente</small>
+              </div>
+
+              <div class="form-group">
+                <label for="numeroPessoas">
+                  <i class="fas fa-users"></i>
+                  Número de Pessoas *
+                </label>
+                <select id="numeroPessoas" required>
+                  <option value="">Selecione...</option>
+                  <option value="1">1 pessoa</option>
+                  <option value="2">2 pessoas</option>
+                  <option value="3">3 pessoas</option>
+                  <option value="4">4 pessoas</option>
+                  <option value="5">5 ou mais pessoas</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="insolacao">
+                  <i class="fas fa-sun"></i>
+                  Incidência Solar *
+                </label>
+                <select id="insolacao" required>
+                  <option value="">Selecione...</option>
+                  <option value="pouca">
+                    Pouca (sombra, janelas pequenas)
+                  </option>
+                  <option value="media">Média (luz natural moderada)</option>
+                  <option value="muita">
+                    Muita (sol direto, janelas grandes)
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="tipoAmbiente">
+                  <i class="fas fa-home"></i>
+                  Tipo de Ambiente *
+                </label>
+                <select id="tipoAmbiente" required>
+                  <option value="">Selecione...</option>
+                  <option value="residencial">
+                    Residencial (quarto, sala)
+                  </option>
+                  <option value="cozinha">Cozinha</option>
+                  <option value="escritorio">Escritório/Comercial</option>
+                  <option value="servidor">Sala de Servidores</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="equipamentos">
+                  <i class="fas fa-plug"></i>
+                  Equipamentos Eletrônicos
+                </label>
+                <select id="equipamentos">
+                  <option value="nenhum">Nenhum ou poucos</option>
+                  <option value="medio">Médio (TV, computador)</option>
+                  <option value="muitos">Muitos (vários equipamentos)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="peDireito">
+                  <i class="fas fa-arrows-alt-v"></i>
+                  Pé Direito (Altura do teto)
+                </label>
+                <select id="peDireito">
+                  <option value="baixo">Baixo (até 2,7m)</option>
+                  <option value="medio" selected>Médio (2,7m a 3,2m)</option>
+                  <option value="alto">Alto (acima de 3,2m)</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-calcular">
+                <i class="fas fa-calculator"></i> Calcular BTUs
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Resultado -->
+        <div id="resultadoBTU" class="resultado-btu hidden">
+          <div class="resultado-btu-content">
+            <i class="fas fa-snowflake resultado-icon"></i>
+            <h3>Aparelho Recomendado</h3>
+            <div class="btu-valor" id="btuCalculado">0 BTUs</div>
+            <div class="btu-detalhes" id="btuDetalhes"></div>
+            <div class="btu-modelos" id="btuModelos"></div>
+            <p class="btu-aviso">
+              <i class="fas fa-info-circle"></i>
+              Este cálculo é uma estimativa. Para maior precisão, consulte um
+              profissional especializado.
+            </p>
+            <button class="btn btn-primary" onclick="abrirWhatsAppComBTU()">
+              <i class="fab fa-whatsapp"></i> Solicitar Orçamento de Instalação
+            </button>
+            <button class="btn btn-secondary" onclick="resetCalculadoraBTU()">
+              Nova Consulta
+            </button>
           </div>
         </div>
       </div>
@@ -368,11 +533,104 @@
     <section id="orcamento" class="orcamento">
       <div class="container">
         <h2 class="section-title">Calcule seu Orçamento</h2>
-        <p class="section-subtitle">Faça uma simulação rápida e fale conosco</p>
+        <p class="section-subtitle">
+          Escolha o serviço e faça uma simulação rápida
+        </p>
 
-        <div class="calculadora-wrapper">
+        <!-- Carrossel de Serviços -->
+        <div class="servicos-carrossel">
+          <button class="carousel-btn prev-btn" onclick="mudarServico(-1)">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+              <!-- Card 1: Limpeza de Evaporadora -->
+              <div class="carousel-card active" data-servico="limpeza-interna">
+                <div class="card-icon">
+                  <i class="fas fa-snowflake"></i>
+                </div>
+                <h3>Limpeza de Evaporadora</h3>
+                <p>Higienização da parte interna do ar condicionado</p>
+                <button
+                  class="btn btn-primary"
+                  onclick="iniciarOrcamento('limpeza-interna')"
+                >
+                  Calcular Orçamento
+                </button>
+              </div>
+
+              <!-- Card 2: Limpeza Completa -->
+              <div class="carousel-card" data-servico="limpeza-completa">
+                <div class="card-icon">
+                  <i class="fas fa-fan"></i>
+                </div>
+                <h3>Limpeza Completa</h3>
+                <p>Higienização interna e externa (condensadora)</p>
+                <button
+                  class="btn btn-primary"
+                  onclick="iniciarOrcamento('limpeza-completa')"
+                >
+                  Calcular Orçamento
+                </button>
+              </div>
+
+              <!-- Card 3: Instalação - Remover classe 'hidden' quando o serviço estiver disponível -->
+              <div class="carousel-card hidden" data-servico="instalacao">
+                <div class="card-icon">
+                  <i class="fas fa-tools"></i>
+                </div>
+                <h3>Instalação de Ar Condicionado</h3>
+                <p>Instalação profissional residencial</p>
+                <button
+                  class="btn btn-primary"
+                  onclick="iniciarOrcamento('instalacao')"
+                >
+                  Solicitar Orçamento
+                </button>
+              </div>
+
+              <!-- Card 4: Manutenção -->
+              <div class="carousel-card" data-servico="manutencao">
+                <div class="card-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Manutenção Preventiva</h3>
+                <p>Inspeção completa e verificação de componentes</p>
+                <button
+                  class="btn btn-primary"
+                  onclick="iniciarOrcamento('manutencao')"
+                >
+                  Solicitar Orçamento
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-btn next-btn" onclick="mudarServico(1)">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Indicadores do Carrossel -->
+        <div class="carousel-indicators" id="carouselIndicators">
+          <span class="indicator active" onclick="irParaSlide(0)"></span>
+          <span class="indicator" onclick="irParaSlide(1)"></span>
+          <span class="indicator" onclick="irParaSlide(2)"></span>
+          <!-- Remover classe 'hidden' quando o serviço de instalação estiver disponível -->
+          <span class="indicator hidden" onclick="irParaSlide(3)"></span>
+        </div>
+
+        <!-- Calculadora (aparece após escolher serviço) -->
+        <div class="calculadora-wrapper hidden" id="calculadoraWrapper">
           <div class="calculadora">
-            <div class="calc-step" id="step1">
+            <div class="servico-selecionado" id="servicoSelecionado">
+              <i class="fas fa-snowflake"></i>
+              <span>Limpeza de Evaporadora</span>
+            </div>
+
+            <!-- Step 1: Quantidade de aparelhos (para limpezas) -->
+            <div class="calc-step hidden" id="step1">
               <h3>Quantos aparelhos deseja limpar?</h3>
               <div class="quantidade-btns">
                 <button class="qtd-btn" data-qtd="1">1 Aparelho</button>
@@ -390,8 +648,15 @@
                   Mais de 3
                 </button>
               </div>
+              <button
+                class="btn btn-secondary btn-voltar"
+                onclick="voltarParaCarrossel()"
+              >
+                <i class="fas fa-arrow-left"></i> Voltar aos Serviços
+              </button>
             </div>
 
+            <!-- Step 2: Tipo de limpeza (apenas para limpeza interna) -->
             <div class="calc-step hidden" id="step2">
               <h3>Qual tipo de limpeza?</h3>
               <div class="tipo-limpeza">
@@ -430,6 +695,7 @@
               </button>
             </div>
 
+            <!-- Step 3: Localização (para limpeza completa) -->
             <div class="calc-step hidden" id="step3">
               <h3>Onde está a condensadora (parte externa)?</h3>
               <div class="localizacao-btns">
@@ -450,6 +716,7 @@
               </button>
             </div>
 
+            <!-- Resultado -->
             <div class="calc-step hidden" id="resultado">
               <div class="resultado-box">
                 <i class="fas fa-check-circle"></i>

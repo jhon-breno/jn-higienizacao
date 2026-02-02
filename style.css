@@ -270,6 +270,10 @@ section {
   transition:
     transform 0.3s,
     box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
 }
 
 .servico-card:hover {
@@ -421,6 +425,112 @@ section {
   background: var(--light-color);
 }
 
+/* Carrossel de Serviços */
+.servicos-carrossel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 60px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-card {
+  min-width: 100%;
+  background: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+}
+
+.carousel-card .card-icon {
+  font-size: 4rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.carousel-card h3 {
+  font-size: 1.8rem;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+.carousel-card p {
+  color: #636e72;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #dfe6e9;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.indicator.active {
+  background: var(--primary-color);
+  width: 30px;
+  border-radius: 6px;
+}
+
+.indicator:hover {
+  background: var(--secondary-color);
+}
+
+/* Calculadora */
 .calculadora-wrapper {
   max-width: 700px;
   margin: 0 auto;
@@ -431,6 +541,28 @@ section {
   padding: 3rem;
   border-radius: 20px;
   box-shadow: var(--shadow-lg);
+}
+
+.servico-selecionado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.servico-selecionado i {
+  font-size: 1.5rem;
 }
 
 .calc-step {
@@ -912,6 +1044,28 @@ section {
     padding: 2rem 1.5rem;
   }
 
+  .servicos-carrossel {
+    padding: 0 50px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .carousel-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .carousel-card .card-icon {
+    font-size: 3rem;
+  }
+
+  .carousel-card h3 {
+    font-size: 1.5rem;
+  }
+
   .quantidade-btns,
   .localizacao-btns {
     grid-template-columns: 1fr;
@@ -923,6 +1077,28 @@ section {
 
   .portfolio-grid {
     grid-template-columns: 1fr;
+  }
+
+  .calc-btus-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .calc-btus-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .btu-valor {
+    font-size: 2.5rem;
+  }
+
+  .resultado-btu-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .resultado-btu-content .btn {
+    min-width: auto;
+    width: 100%;
   }
 
   .toast {
@@ -944,6 +1120,29 @@ section {
     display: none;
   }
 
+  .servicos-carrossel {
+    padding: 0 40px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .carousel-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .carousel-card .card-icon {
+    font-size: 2.5rem;
+  }
+
+  .servico-selecionado {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
   .hero {
     padding: 120px 0 60px;
   }
@@ -956,6 +1155,225 @@ section {
     padding: 0.7rem 1rem;
     font-size: 0.85rem;
   }
+}
+
+/* Calculadora de BTUs */
+.calculadora-btus {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.calc-btus-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.calc-btus-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.info-box i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.info-box h3 {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.info-box p {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.calc-btus-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow-lg);
+}
+
+.calc-btus-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.calc-btus-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.calc-btus-form label i {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+.calc-btus-form input,
+.calc-btus-form select {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.calc-btus-form input:focus,
+.calc-btus-form select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.1);
+}
+
+.calc-btus-form small {
+  display: block;
+  margin-top: 0.4rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.btn-calcular {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.resultado-btu {
+  margin-top: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.resultado-btu.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resultado-btu-content {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.resultado-icon {
+  font-size: 4rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.resultado-btu h3 {
+  color: var(--dark-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.btu-valor {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 1.5rem 0;
+}
+
+.btu-detalhes {
+  background: var(--light-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.btu-detalhes p {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.btu-detalhes strong {
+  color: var(--dark-color);
+}
+
+.btu-modelos {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
+.btu-modelos h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.btu-modelos ul {
+  list-style: none;
+  text-align: left;
+}
+
+.btu-modelos li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btu-modelos li:last-child {
+  border-bottom: none;
+}
+
+.btu-modelos i {
+  margin-right: 0.5rem;
+}
+
+.btu-aviso {
+  background: #fff3cd;
+  color: #856404;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.btu-aviso i {
+  margin-right: 0.5rem;
+}
+
+.resultado-btu-content .btn {
+  margin: 0.5rem;
+  min-width: 200px;
 }
 
 /* Scroll suave */

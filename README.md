@@ -5,6 +5,13 @@ Website profissional para serviços de higienização de ar condicionado.
 ## 🚀 Funcionalidades
 
 - **Design Responsivo**: Totalmente adaptado para desktop, tablet e mobile
+- **Calculadora de BTUs**: Sistema inteligente que calcula a capacidade ideal do ar condicionado baseado em:
+  - Área do ambiente (m²)
+  - Número de pessoas
+  - Incidência solar
+  - Tipo de ambiente (residencial, cozinha, escritório, sala de servidores)
+  - Quantidade de equipamentos eletrônicos
+  - Altura do pé direito
 - **Calculadora de Orçamento Interativa**: Sistema inteligente que calcula o valor do serviço baseado em:
   - Quantidade de aparelhos (1, 2, 3 ou mais)
   - Tipo de limpeza (interna ou completa)
@@ -18,6 +25,31 @@ Website profissional para serviços de higienização de ar condicionado.
 - **Portfólio Visual**: Galeria de trabalhos realizados com imagens antes/depois
 - **Seções Informativas**: Benefícios, serviços e informações de contato
 - **Ícone Personalizado**: Favicon SVG com design profissional representando climatização
+
+## 📐 Calculadora de BTUs
+
+A calculadora de BTUs ajuda os clientes a descobrir qual a capacidade ideal do aparelho de ar condicionado para o seu ambiente. O cálculo considera:
+
+- **Cálculo base**: 600 BTUs por m²
+- **Pessoas**: 600 BTUs por pessoa adicional
+- **Insolação**:
+  - Pouca (sombra): -10%
+  - Média: sem alteração
+  - Muita (sol direto): +15%
+- **Tipo de ambiente**:
+  - Residencial: sem alteração
+  - Cozinha: +20%
+  - Escritório: +10%
+  - Sala de servidores: +50%
+- **Equipamentos eletrônicos**:
+  - Médio: +800 BTUs
+  - Muitos: +1500 BTUs
+- **Pé direito**:
+  - Baixo (até 2,7m): -5%
+  - Médio (2,7m a 3,2m): sem alteração
+  - Alto (acima de 3,2m): +10%
+
+O resultado é arredondado para os BTUs comerciais padrão (7.000, 9.000, 12.000, 18.000, 24.000, 30.000, etc.) e sugere modelos compatíveis.
 
 ## 📋 Estrutura de Preços
 
