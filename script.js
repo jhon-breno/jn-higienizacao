@@ -476,6 +476,14 @@ function calcularBTU() {
   // Validação
   if (!area || !numeroPessoas || !insolacao || !tipoAmbiente) {
     mostrarToast("Por favor, preencha todos os campos obrigatórios!", "error");
+    // Scroll para o formulário
+    document.getElementById("formCalculoBTU").scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  // Validação de área
+  if (area <= 0 || area > 500) {
+    mostrarToast("Por favor, insira uma área válida (entre 1 e 500 m²)!", "error");
     return;
   }
 
@@ -618,24 +626,40 @@ function exibirResultadoBTU(btuRecomendado, area, btuCalculadoExato) {
 
   // Mostrar resultado com animação
   resultadoDiv.classList.remove("hidden");
+  // Pequeno delay para ativar a transição
   setTimeout(() => {
     resultadoDiv.classList.add("show");
-    resultadoDiv.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, 100);
+  }, 10);
+
+  // Scroll para o resultado
+  setTimeout(() => {
+    resultadoDiv.scrollIntoView({ 
+      behavior: "smooth", 
+      block: "nearest" 
+    });
+  }, 300);
+
+  // Mostrar sucesso
+  mostrarToast("Cálculo realizado com sucesso! 🎉", "success");
 }
 
 function resetCalculadoraBTU() {
-  document.getElementById("formCalculoBTU").reset();
   const resultadoDiv = document.getElementById("resultadoBTU");
+  const formBTU = document.getElementById("formCalculoBTU");
+
+  // Remover animação de entrada
   resultadoDiv.classList.remove("show");
+
+  // Aguardar transição e esconder
   setTimeout(() => {
     resultadoDiv.classList.add("hidden");
+    formBTU.reset();
   }, 300);
 
   // Scroll para o formulário
-  document
-    .getElementById("calculadora-btus")
-    .scrollIntoView({ behavior: "smooth" });
+  setTimeout(() => {
+    formBTU.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, 350);
 }
 
 function abrirWhatsAppComBTU() {
